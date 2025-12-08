@@ -14,17 +14,10 @@ L’obiettivo è:
 - [Descrizione del progetto](#descrizione-del-progetto)
 - [Algoritmo implementato](#algoritmo-implementato)
   - [1. Segmentazione dell’iride](#1-segmentazione-delliride)
-  - [2. Normalizzazione (Rubber Sheet Model)](#2-normalizzazione-rubber-sheet-model)
-  - [3. Estrazione dellIrisCode](#3-estrazione-delliriscode)
+  - [2. Normalizzazione – Rubber Sheet Model](#2-normalizzazione--rubber-sheet-model)
+  - [3. Estrazione dell’IrisCode](#3-estrazione-delliriscode)
   - [4. Distanza di Hamming e decisione](#4-distanza-di-hamming-e-decisione)
-- [Struttura del dataset](#struttura-del-dataset)
-- [Struttura del progetto](#struttura-del-progetto)
-- [Requisiti](#requisiti)
-- [Installazione](#installazione)
-- [Utilizzo](#utilizzo)
-- [Output generati](#output-generati)
-- [Scelte di visualizzazione dei risultati](#scelte-di-visualizzazione-dei-risultati)
-- [Riferimenti e crediti](#riferimenti-e-crediti)
+- [Autori](#autori)
 
 ---
 
@@ -69,7 +62,7 @@ Funzione principale: `segment_iris(img)`
 - in caso di fallimento di Hough:
   - usa un metodo di emergenza (centro dell’immagine + raggio approssimato);
 - output:
-  - un cerchio per la **pupilla** `(xp, yp, rp)`
+  - un cerchio per la **pupilla** `(xp, yp, rp)`;
   - un cerchio per il **bordo dell’iride** `(xi, yi, ri)`.
 
 L’anello tra questi due cerchi è la regione ricca di informazione biometrica.
@@ -105,8 +98,8 @@ Step concettuale:
    - `gaussian_filter` → parte “reale”,
    - `gaussian_laplace` → parte “immaginaria” (per la maschera).
 2. Soglia la parte reale:
-   - se valore > media → bit = 1
-   - se valore ≤ media → bit = 0
+   - se valore > media → bit = 1;
+   - se valore ≤ media → bit = 0.
 3. Costruisce:
    - `iris_code`: vettore binario (flatten della matrice),
    - `mask`: vettore binario che indica quali bit sono **affidabili** (niente riflessi, ciglia, ecc.).
@@ -133,30 +126,34 @@ Pipeline:
 
 2. **Distanze genuine**  
    Per ogni persona:
-   - fa tutte le combinazioni a coppie tra le sue immagini,
+   - fa tutte le combinazioni a coppie tra le sue immagini;
    - calcola la distanza di Hamming usando solo i bit validi in entrambe le maschere.
 
 3. **Distanze impostor**  
-   - prende tutte le coppie tra persone diverse,
-   - calcola distanze di Hamming,
+   - prende tutte le coppie tra persone diverse;
+   - calcola distanze di Hamming;
    - opzionalmente sottocampiona fino a `MAX_IMPOSTOR_PAIRS` (default: 5000).
 
 4. **Valori attesi**:
-   - genuine: distanza tipicamente tra ~0.10 e ~0.35,
+   - genuine: distanza tipicamente tra ~0.10 e ~0.35;
    - impostor: distanza attorno a ~0.5 (comportamento casuale).
 
 5. **ROC curve**  
    Varia la soglia `t` da 0 a 1 e per ogni valore calcola:
-   - TPR (True Positive Rate) = genuine ≤ t
-   - FPR (False Positive Rate) = impostor ≤ t  
+   - TPR (True Positive Rate) = genuine ≤ t;
+   - FPR (False Positive Rate) = impostor ≤ t.  
    Da qui:
-   - si disegna la **curva ROC**,
+   - si disegna la **curva ROC**;
    - si calcola l’**AUC** con integrazione numerica.
 
 ---
 
+## Autori
 
-Autori
-Progetto realizzato nell’ambito del corso Principi e Modelli della Percezione.
-Team: Michele Celozzi, Giulia Porro, Rebecca Calore.
+Progetto realizzato nell’ambito del corso *Principi e Modelli della Percezione*.
 
+Team:
+
+- **Michele Celozzi**
+- **Giulia Porro**
+- **Rebecca Calore**
