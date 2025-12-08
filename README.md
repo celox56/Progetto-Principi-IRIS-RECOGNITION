@@ -24,7 +24,6 @@ L’obiettivo è:
 - [Utilizzo](#utilizzo)
 - [Output generati](#output-generati)
 - [Scelte di visualizzazione dei risultati](#scelte-di-visualizzazione-dei-risultati)
-- [Limiti e possibili estensioni](#limiti-e-possibili-estensioni)
 - [Riferimenti e crediti](#riferimenti-e-crediti)
 
 ---
