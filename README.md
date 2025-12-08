@@ -9,7 +9,7 @@ L’obiettivo è:
 
 ---
 
-## 📚 Contenuti
+## Contenuti
 
 - [Descrizione del progetto](#descrizione-del-progetto)
 - [Algoritmo implementato](#algoritmo-implementato)
@@ -29,7 +29,7 @@ L’obiettivo è:
 
 ---
 
-## 🧠 Descrizione del progetto
+## Descrizione del progetto
 
 L’iride è uno dei tratti biometrici più affidabili:
 
@@ -54,7 +54,7 @@ In questo progetto:
 
 ---
 
-## ⚙️ Algoritmo implementato
+## Algoritmo implementato
 
 Tutto il flusso è implementato nello script Python (ad es. `iris_recognition.py`).
 
@@ -156,93 +156,8 @@ Pipeline:
 
 ---
 
-## 📁 Struttura del dataset
 
-Il codice si aspetta un dataset organizzato così:
-
-```text
-Eye database/
-├── 001/
-│   ├── img1.jpg
-│   ├── img2.jpg
-│   └── ...
-├── 002/
-│   ├── img1.jpg
-│   └── ...
-├── personA/
-│   ├── ...
-└── ...matplotlib
-
-
-pandas
-
-
-
-📊 Dataset
-Il dataset utilizzato è composto da oltre 200 immagini di iridi reali, appartenenti sia alla stessa persona che a persone diverse.
-La grande variabilità delle iridi è ideale per studiare:
-Similarità intra-persona
-
-
-Differenze inter-persona
-
-
-Andamento delle distanze biometriche
-
-
-
-🔍 Obiettivi raggiunti
-Nel progetto abbiamo:
-Processato tutte le immagini del dataset
-
-
-Generato gli IrisCode
-
-
-Confrontato tutte le coppie possibili
-
-
-Calcolato le distanze di Hamming
-
-
-Prodotto grafici chiari e leggibili per valutare il sistema
-
-
-Dimostrato che l’algoritmo distingue correttamente iridi genuine e impostor
-
-
-
-🗂️ File principali
-processing.py — Estrazione delle feature e IrisCode
-
-
-analysis.py — Calcolo distanze e grafici
-
-
-dataset/ — Immagini dell’iride
-
-
-results/ — Grafici finali e file CSV
-
-
-
-📌 Come eseguire il codice
-Installare le dipendenze:
-
-
-pip install -r requirements.txt
-
-Assicurarsi che la cartella dataset/ contenga le immagini.
-
-
-Eseguire:
-
-
-python processing.py
-python analysis.py
-
-
-📚 Autori
+Autori
 Progetto realizzato nell’ambito del corso Principi e Modelli della Percezione.
-Team: [Inserisci i nomi del gruppo].
+Team: Michele Celozzi, Giulia Porro, Rebecca Calore.
 
